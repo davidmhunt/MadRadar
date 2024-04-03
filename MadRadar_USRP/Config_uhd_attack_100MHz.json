@@ -1,0 +1,64 @@
+{
+    "USRPSettings":{
+        "Multi-USRP":{
+            "use_serial":false,
+            "serial": "3231EB8",
+            "use_addr":true,
+            "addrs": "192.168.70.3",
+            "ref":"internal",
+            "sampling_rate":100e6,
+            "center_freq":1.5e9,
+            "lo-offset":0.0,
+            "IF_filter_bw":100e6,
+            "wirefmt":"sc16",
+            "type":"float",
+            "cpufmt":"fc32",
+            "stream_start_time":0.25
+        },
+        "TX":{
+            "enabled":true,
+            "spb":2040,
+            "gain":14,
+            "ant":"TX/RX",
+            "subdev":"A:0",
+            "channel":0
+        },
+        "RX":{
+            "enabled":true,
+            "spb":2040,
+            "spp":0,
+            "gain":14,
+            "ant":"RX2",
+            "subdev":"A:0",
+            "channel":0,
+            "offset_us": 5.5989
+        },
+        "AdditionalSettings":{
+            "setup_time":1.0,
+            "skip-lo":false,
+            "int-n":false,
+            "simplified_streamer_metadata":true,
+            "debug":true
+        }
+    },
+    "SensingSubsystemSettings":{
+        "energy_detection_threshold_dB":7,
+        "noise_power_measurement_time_ms":5,
+        "energy_detector_num_rows_chirp_detector":2,
+        "min_recording_time_ms": 2,
+        "spectogram_peak_detection_threshold_dB": 7,
+        "min_points_per_chirp": 5,
+        "num_victim_frames_to_capture": 30,
+        "min_frame_periodicity_ms": 20,
+        "max_waiting_time_ms": 1000,
+        "debug": true,
+        "save_file_path": "/home/davidh/Documents/MATLAB_generated/cpp_sensed_parameters/"
+    },
+    "AttackSubsystemSettings":{
+        "tx_file_name": "/home/davidh/Documents/MATLAB_generated/MATLAB_attacking_chirps_full.bin",
+        "enabled": false,
+        "num_attack_frames": 20,
+        "attack_start_frame": 10,
+        "estimated_frame_periodicity_ms": 33.3300
+    }
+}

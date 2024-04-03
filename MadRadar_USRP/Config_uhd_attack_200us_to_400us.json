@@ -1,0 +1,90 @@
+{
+    "USRPSettings":{
+        "Multi-USRP":{
+            "use_serial":true,
+            "serial": "3231EB8",
+            "use_addr":false,
+            "addrs": "109.222",
+            "ref":"internal",
+            "sampling_rate":25.00e6,
+            "center_freq":1.5e9,
+            "lo-offset":0.0,
+            "IF_filter_bw":25.00e6,
+            "wirefmt":"sc16",
+            "type":"float",
+            "cpufmt":"fc32",
+            "stream_start_time":0.25
+        },
+        "TX":{
+            "enabled":true,
+            "spb":2040,
+            "gain":50,
+            "ant":"TX/RX",
+            "subdev":"A:A A:B",
+            "channel":0
+        },
+        "RX":{
+            "enabled":true,
+            "spb":2040,
+            "spp":0,
+            "gain":30,
+            "ant":"RX2",
+            "subdev":"A:A A:B",
+            "channel":0,
+            "offset_us": 6.9726
+        },
+        "AdditionalSettings":{
+            "setup_time":1.0,
+            "skip-lo":false,
+            "int-n":false,
+            "simplified_streamer_metadata":true,
+            "debug":false
+        }
+    },
+    "SensingSubsystemSettings":{
+        "energy_detection_threshold_dB":10,
+        "noise_power_measurement_time_ms":3,
+        "energy_detector_num_rows_chirp_detector":2,
+        "min_recording_time_ms": 6,
+        "spectrogram_freq_sampling_period_s": 10.0e-6,
+        "spectogram_peak_detection_threshold_dB": 5,
+        "min_points_per_chirp": 5,
+        "precise_timing_estimate_observation_window_time_us": 10,
+        "precise_timing_estimate_max_xcorr_lag_samples": 400,
+        "max_victim_chirps_to_capture":800,
+        "num_victim_frames_to_capture": 30,
+        "min_frame_periodicity_ms": 180,
+        "max_waiting_time_ms": 60e3,
+        "randomization_detection":{
+            "frame_period_us":{
+                "threshold": 0.0086,
+                "num_samples": 7
+            }
+        },
+        "debug": false,
+        "save_file_path": "/home/david/Documents/MATLAB_generated/cpp_sensed_parameters/"
+    },
+    "AttackSubsystemSettings":{
+        "enabled": true,
+        "num_attack_frames": 15,
+        "attack_start_frame": 7,
+        "current_victim_pos_m": 10.0,
+        "current_victim_vel_m_s": -40,
+        "FP_spoof_enable":true,
+        "FP_spoof_realistic_movement_enabled": true,
+        "FP_spoof_power_scaling_enabled":true,
+        "FP_spoof_distances_m": [150],
+        "FP_spoof_vels_m_s": [-20],
+        "FN_spoof_enable": false,
+        "FN_spoof_realistic_movement_enabled": true,
+        "FN_spoof_distance_m": 50,
+        "FN_spoof_vel_m_s": -10,
+        "sim_vel_attack_enable":true,
+        "sim_slope_attack_enable":true,
+        "jamming":{
+            "jam_on_parameter_randomization":true,
+            "jamming_range_span_m":2000
+        },
+        "debug":false
+    }
+}

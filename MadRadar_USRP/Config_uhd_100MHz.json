@@ -1,0 +1,52 @@
+{
+    "USRPSettings":{
+        "Multi-USRP":{
+            "use_serial":false,
+            "serial": "3231EFC",
+            "use_addr":true,
+            "addrs": "192.168.70.7",
+            "ref":"internal",
+            "sampling_rate":100e6,
+            "center_freq":1.5e9,
+            "lo-offset":0.0,
+            "IF_filter_bw":100e6,
+            "wirefmt":"sc16",
+            "type":"float",
+            "cpufmt":"fc32",
+            "stream_start_time":0.25
+        },
+        "TX":{
+            "enabled":true,
+            "spb":0,
+            "gain":14,
+            "ant":"TX/RX",
+            "subdev":"A:0",
+            "channel":0
+        },
+        "RX":{
+            "enabled":true,
+            "spb":0,
+            "spp":0,
+            "gain":14,
+            "ant":"RX2",
+            "subdev":"A:0",
+            "channel": 0,
+            "offset_us": 5.5989
+        },
+        "AdditionalSettings":{
+            "setup_time":1.0,
+            "skip-lo":false,
+            "int-n":false,
+            "simplified_streamer_metadata":true,
+            "debug":true
+        }
+    },
+    "RadarSettings":{
+        "tx_file_folder_path":"/home/davidh/Documents/MATLAB_generated/MATLAB_full_chirps/",
+        "rx_file_folder_path":"/home/davidh/Documents/MATLAB_generated/cpp_rx_data_files/",
+        "num_chirps": 128,
+        "num_frames": 50,
+        "frame_periodicity_ms": 33.33,
+        "debug":false
+    }
+}

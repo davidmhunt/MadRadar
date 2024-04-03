@@ -1,0 +1,11 @@
+{ "PlotSettings":
+    {
+        "Configurations": {
+            "plot_p_detection": 0,
+            "plot_p_false_pos": 1,
+            "num_runs": 400,
+            "max_bin": 30,
+            "bin_width": 5
+        }
+    }
+}

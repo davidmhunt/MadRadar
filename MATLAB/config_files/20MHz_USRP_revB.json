@@ -1,0 +1,34 @@
+{ "RadarSettings":
+    {
+        "Victim": {
+            "StartFrequency_GHz":3.0,
+            "FrequencySlope_MHz_us": 0.1007,
+            "TxStartTime_us": 0,
+            "ADC_Samples": 64,
+            "ADC_SampleRate_MSps": 0.2660,
+            "ChirpCycleTime_us": 255.68,
+            "NumChirps": 256,
+            "FramePeriodicity_ms": 100.00,
+            "plotResolution_us": 0.01,
+            "tx_period_plot_color": "blue",
+            "tx_sampling_period_plot_color": "cyan",
+            "radar_name": "Victim",
+            "timing_offset_us":0
+        },        
+        "Attacker": {
+            "StartFrequency_GHz":3.0,
+            "FrequencySlope_MHz_us": 0.1007,
+            "TxStartTime_us": 0,
+            "ADC_Samples": 64,
+            "ADC_SampleRate_MSps": 0.2660,
+            "ChirpCycleTime_us": 255.68,
+            "NumChirps": 256,
+            "FramePeriodicity_ms": 100.00,
+            "plotResolution_us": 0.01,
+            "tx_period_plot_color": "blue",
+            "tx_sampling_period_plot_color": "cyan",
+            "radar_name": "Victim",
+            "timing_offset_us":0
+        }
+    }
+}

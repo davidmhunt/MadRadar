@@ -1,0 +1,6 @@
+[submodule "FMCW_radar_uhd/src/sensing_subsystem/eigen"]
+	path = MadRadar_USRP/src/sensing_subsystem/eigen
+	url = https://gitlab.com/libeigen/eigen.git
+[submodule "FMCW_radar_uhd/src/sensing_subsystem/pocketfft"]
+	path = MadRadar_USRP/src/sensing_subsystem/pocketfft
+	url = https://github.com/hayguen/pocketfft.git
