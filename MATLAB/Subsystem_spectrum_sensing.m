@@ -97,7 +97,7 @@ classdef Subsystem_spectrum_sensing < handle
 
             %initialize the remaining parameters
             obj.initialize_detection_params();
-            min_processing_delay_ms = 90;%20 ms for 4GHz - 100 MHz, check frame rate for 20 MHz configurations
+            min_processing_delay_ms = 20;%20 ms for 4GHz - 100 MHz, check frame rate for 20 MHz and USRP configurations
             obj.initialize_timing_params(min_processing_delay_ms);
             obj.initialize_spectogram_params(FMCW_sample_rate_Msps);
             obj.initialize_chirp_and_frame_tracking();
@@ -201,7 +201,7 @@ classdef Subsystem_spectrum_sensing < handle
             if obj.FMCW_sample_rate_Msps > 500
                 obj.spectogram_params.freq_sampling_period_us = 0.5;
             else
-                USRP = true;
+                USRP = false;
                 if USRP
                     obj.spectogram_params.freq_sampling_period_us = 15;
                 else

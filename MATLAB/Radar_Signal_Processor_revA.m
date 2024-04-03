@@ -225,12 +225,12 @@ classdef Radar_Signal_Processor_revA < handle
             
             %calculate training region size
             %high BW configurations
-%             range_training_size = min(8,ceil(obj.Radar.ADC_Samples * 0.05)); 
-%             velocity_training_size = max(3,ceil(obj.Radar.NumChirps * 0.05));
+            range_training_size = min(8,ceil(obj.Radar.ADC_Samples * 0.05)); 
+            velocity_training_size = max(3,ceil(obj.Radar.NumChirps * 0.05));
             
             % low bw configurations
-            range_training_size = 2;
-            velocity_training_size = 3;
+%             range_training_size = 2;
+%             velocity_training_size = 3;
             
             %put guard and training region sizes into arrays for the CFAR detector
             obj.guard_region = [2,3]; %another option is [2,1]
