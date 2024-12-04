@@ -87,7 +87,7 @@ Note: this readme file is currently being updated. The below instructions should
 
 ### 1. Start Experiment in MATLAB
 
-1. Open up the [MATLAB/DIAG_USRP_Run_Radar.mlx](MATLAB/DIAG_USRP_Sensing.mlx) matlab live script file.
+1. Open up the [DIAG_USRP_Attack_system.mlx](MATLAB/DIAG_USRP_Attack_system.mlx) matlab live script file.
 2. In the first section ("Initialize the FMCW Configuration), update the config_folder_path variable with the path to the CPSL_USRP_FMCW_Radar/MATLAB/config_files folder on your machine.The [config_files](MATLAB/config_files/) folder contains several configurations that I have used in the past, however you can also create your own configuration as well. To do so, complete the following steps:
     1. Create a new config.json file in the [config_files](MATLAB/config_files/) folder.
     2. See the other config.json files for the template that should be followed. When specifying your own configuration, you will need to fill out the following fields
@@ -105,7 +105,7 @@ Note: this readme file is currently being updated. The below instructions should
         3. In the second section, specify the exact sampling rate that the USRP will operate at (I have previously done 25 MHz) in MHz. Then, run the second section.
         4. At the bottom of the script, it will provide the slope, chirp period (Tc_us), and ADC sample rate that you should use to meet your performace specs. 
         5. NOTE: This script doesn't guarantee a valid configuration, in later sections, I will show how to verify that your configuration is valid. If you configuration is not valid, you may hve to try using different settings
-    4. Once your configuration has been updated, go back to the [DIAG_USRP_Run_Radar.mlx](MATLAB/DIAG_USRP_Run_Radar.mlx), and run the first section. At the end of this section, it will print out key radar parameters and performance specifications. Here, check the following:
+    4. Once your configuration has been updated, go back to the [DIAG_USRP_Attack_system.mlx](MATLAB/DIAG_USRP_Attack_system.mlx), and run the first section. At the end of this section, it will print out key radar parameters and performance specifications. Here, check the following:
         * Ensure that none of the values in the Chirp Parameters or Frame Parameters are negative. If so, the configuration is not valid
         * Ensure that the frame periodicity is not shorter than the active frame time. If so, you may have to use less chirps or shorten your frame duration
         * Ensure that the FMCW sampling rate is exactly the frequency that the USRP will operate at. This is because the MATLAB script will save the transmitted chirp at this sampling rate.
