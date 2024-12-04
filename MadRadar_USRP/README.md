@@ -87,9 +87,9 @@ Note: this readme file is currently being updated. The below instructions should
 
 ### 1. Start Experiment in MATLAB
 
-1. Open up the [DIAG_USRP_Attack_system.mlx](MATLAB/DIAG_USRP_Attack_system.mlx) matlab live script file.
-2. In the first section ("Initialize the FMCW Configuration), update the config_folder_path variable with the path to the CPSL_USRP_FMCW_Radar/MATLAB/config_files folder on your machine.The [config_files](MATLAB/config_files/) folder contains several configurations that I have used in the past, however you can also create your own configuration as well. To do so, complete the following steps:
-    1. Create a new config.json file in the [config_files](MATLAB/config_files/) folder.
+1. Open up the [DIAG_USRP_Attack_system.mlx](../MATLAB/DIAG_USRP_Attack_system.mlx) matlab live script file.
+2. In the first section ("Initialize the FMCW Configuration), update the config_folder_path variable with the path to the MadRadar/MATLAB/config_files folder on your machine.The [config_files](../MATLAB/config_files/) folder contains several configurations that I have used in the past, however you can also create your own configuration as well. To do so, complete the following steps:
+    1. Create a new config.json file in the [config_files](../MATLAB/config_files/) folder.
     2. See the other config.json files for the template that should be followed. When specifying your own configuration, you will need to fill out the following fields
         * StartFrequency_GHz: the start frequency (in GHz) that the radar will transmit FMCW chirps at
         * FrequencySlope_MHz_us: the frequency slope of the chirps
@@ -100,12 +100,12 @@ Note: this readme file is currently being updated. The below instructions should
         * NumChirps: The number of chirps per radar frame
         * FramePeriodicity_ms: the time between frames in ms
     3. If you are new to radar, I've created a helpful matlab live script to assist in coming up with these values for a given set of performance values. To use this script, perform the following steps:
-        1. Open the [SETUP_Compute_radar_settings.mlx](MATLAB/SETUP_Compute_radar_settings.mlx) MATLAB live script file
+        1. Open the [SETUP_Compute_radar_settings.mlx](../MATLAB/SETUP_Compute_radar_settings.mlx) MATLAB live script file
         2. In the first section, specify B (bandwidth in Hz), ADC_samples (per chirp, usually set to 256), f (start frequency in Hz), v_max (maximum velocity in m/s), n_chirps (number of chirps, usually set to 256). Then run the first section. 
         3. In the second section, specify the exact sampling rate that the USRP will operate at (I have previously done 25 MHz) in MHz. Then, run the second section.
         4. At the bottom of the script, it will provide the slope, chirp period (Tc_us), and ADC sample rate that you should use to meet your performace specs. 
         5. NOTE: This script doesn't guarantee a valid configuration, in later sections, I will show how to verify that your configuration is valid. If you configuration is not valid, you may hve to try using different settings
-    4. Once your configuration has been updated, go back to the [DIAG_USRP_Attack_system.mlx](MATLAB/DIAG_USRP_Attack_system.mlx), and run the first section. At the end of this section, it will print out key radar parameters and performance specifications. Here, check the following:
+    4. Once your configuration has been updated, go back to the [DIAG_USRP_Attack_system.mlx](../MATLAB/DIAG_USRP_Attack_system.mlx), and run the first section. At the end of this section, it will print out key radar parameters and performance specifications. Here, check the following:
         * Ensure that none of the values in the Chirp Parameters or Frame Parameters are negative. If so, the configuration is not valid
         * Ensure that the frame periodicity is not shorter than the active frame time. If so, you may have to use less chirps or shorten your frame duration
         * Ensure that the FMCW sampling rate is exactly the frequency that the USRP will operate at. This is because the MATLAB script will save the transmitted chirp at this sampling rate.
@@ -119,7 +119,7 @@ Note: this readme file is currently being updated. The below instructions should
 ### 2. Run experiment on the USRP
 
 #### Update .json config file
-Depending on the configuratin that you used in the previous steps, you will either need to select one of the currently available .json configurations located in [FMCW_radar_uhd](FFMCW_radar_uhd/) or create your own. For creating a new .json configuration file for the USRP, use the [Config_uhd_victim_400us_to_500us.json](FMCW_radar_uhd/Config_uhd_victim_400us_to_500us.json) as a reference.
+Depending on the configuratin that you used in the previous steps, you will either need to select one of the currently available .json configurations located in [MadRadar_USRP](./) or create your own. For creating a new .json configuration file for the USRP, use the [Config_uhd_victim_400us_to_500us.json](Config_uhd_victim_400us_to_500us.json) as a reference.
 
 To updating/modifying the .json config file, take note of the following fields:
 * USRPSettings
@@ -160,9 +160,9 @@ To updating/modifying the .json config file, take note of the following fields:
         * debug: on True will print additional information that may be helpful for debugging purposes
 
 #### Rebuild the c++ code with the updated configruation:
-1. Open the [main.cpp](FMCW_radar_uhd/main.cpp) file, and update the following paths:
+1. Open the [main.cpp](./main.cpp) file, and update the following paths:
     1. radar_config_file (line 42): set this to the full path of the .json file that you are using for your experiments
-    2. fmcw_config_file (line 47): set this to the full path of the [Config_FMCW.json](FMCW_radar_uhd/Config_FMCW.json) configuration file. This is an additional configuration file, but should not require modification for running the radar only
+    2. fmcw_config_file (line 47): set this to the full path of the [Config_FMCW.json](./Config_FMCW.json) configuration file. This is an additional configuration file, but should not require modification for running the radar only
 2. Open a terminal window, and navigate to the build folder
 ```
 cd CPSL_USRP_FMCW_Radar/FMCW_radar_uhd/build
@@ -180,7 +180,7 @@ make
 ```
 
 ### 3. Processe the received signals in MATLAB
-1. Go back to the [DIAG_USRP_Run_Radar.mlx](MATLAB/DIAG_USRP_Run_Radar.mlx) matlab file. You should now be on the section titled "RUN Experiment on USRP". 
+1. Go back to the [DIAG_USRP_Attack_system.mlx](../MATLAB/DIAG_USRP_Attack_system.mlx) matlab file. You should now be on the section titled "RUN Experiment on USRP". 
 2. Update the path to be the path specified by rx_file_folder_path in the c++'s .json config file. Then, run the section
 3. In the section titled: "Configure the movie to focus in on specific areas of the range-doppler and CFAR plots, update the following parameters as follows: 
     * record_movie: on true, will generate a .gif of the range doppler, clustering, and detections over all frames and save them in the generated_plots folder
@@ -193,4 +193,4 @@ make
 
 ### [Optional] Calibrating for USRP Tx and Rx timing Offset
 
-I emperically found that there is an offset between the timing of the Tx and Rx on the USRP B210. To compensate for this, the last section in the [DIAG_USRP_Run_Radar.mlx](MATLAB/DIAG_USRP_Run_Radar.mlx) matlab live script file can be used to align the tx and rx chains in time. This will output a delay_us that should then be used to adjust the value of the "offset_us" term in the .json config file for the USRP.
+I emperically found that there is an offset between the timing of the Tx and Rx on the USRP B210. To compensate for this, the last section in the [DIAG_USRP_Attack_system.mlx](../MATLAB/DIAG_USRP_Attack_system.mlx) matlab live script file can be used to align the tx and rx chains in time. This will output a delay_us that should then be used to adjust the value of the "offset_us" term in the .json config file for the USRP.
